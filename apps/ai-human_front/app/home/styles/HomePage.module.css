@@ -1,0 +1,188 @@
+/* Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(30px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(1.05);
+  }
+}
+
+.fadeIn {
+  animation: fadeIn 1s ease-in-out;
+}
+
+.slideUp {
+  animation: slideUp 1.5s ease-out;
+}
+
+.pulse {
+  animation: pulse 1s infinite alternate;
+}
+
+/* Layout */
+.homepageContainer {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--background-color);
+  color: var(--text-color);
+  overflow: hidden;
+  padding: 1rem;
+}
+
+.contentFlex {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 2rem;
+  width: 100%;
+  max-width: 1400px;
+  margin: auto;
+  padding: 2rem 1rem;
+  align-items: stretch;
+  flex: 1;
+}
+
+.inputColumn,
+.resultsColumn {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-radius: 15px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.17);
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  animation: fadeIn 1s ease-in;
+}
+
+.heading {
+  margin-bottom: 1.5rem;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+  font-family: "Roboto", sans-serif;
+  font-weight: bold;
+  color: var(--primary-color);
+  text-align: center;
+  font-size: 2rem;
+  letter-spacing: 1px; /* Example */
+  line-height: 1.4;    /* Example */
+}
+
+.textField {
+  width: 100%;
+  margin-bottom: 1.5rem !important;
+  border-radius: 8px;
+  background-color: rgba(255, 255, 255, 0.2);
+  transition: transform 0.2s ease-in-out;
+}
+
+.textField:hover {
+  transform: scale(1.01);
+}
+
+.textField .MuiOutlinedInput-root {
+  border-radius: 8px;
+}
+
+.textField .MuiOutlinedInput-notchedOutline {
+  border-color: rgba(255, 255, 255, 0.3) !important;
+}
+
+.textField:focus-within .MuiOutlinedInput-notchedOutline {
+  border-color: var(--primary-color) !important;
+}
+
+.resultBox,
+.placeholderBox {
+  padding: 2rem;
+  border-radius: 15px;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.17);
+  width: 100%;
+  flex: 2; /* Example: Make input column wider */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.resultsColumn {
+  flex: 1; /* Example: Make results column narrower */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  border: 2px solid var(--mui-palette-divider); /* Example using a theme variable */
+  box-shadow: none; /* Optionally remove existing shadow */
+}
+
+.centeredLoader {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  min-height: 200px;
+}
+
+.placeholderBox {
+  opacity: 0.7;
+}
+
+/* Responsive adjustments */
+@media (max-width: 900px) {
+  .contentFlex {
+    grid-template-columns: 1fr;
+    padding: 1rem;
+  }
+  .heading {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .heading {
+    font-size: 1.2rem;
+  }
+  .resultBox,
+  .placeholderBox {
+    padding: 1.5rem;
+  }
+  .textField {
+    margin-bottom: 1rem !important;
+  }
+}
+
+.inputColumn:hover {
+  transform: translateY(-5px); /* Example hover effect */
+  transition: transform 0.3s ease-out;
+}
